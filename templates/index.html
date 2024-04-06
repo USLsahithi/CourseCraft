@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseCraft</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+:root{
+    --blue: #41C9E2;
+    --lblue: #ACE2E1;
+}
+
+*{
+    font-family: "Roboto", sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::slection{
+    background: var(--blue);
+    color: #fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    background: #333;
+}
+
+
+
+.home{
+    min-height: 100vh;
+    background: linear-gradient(rgba(65, 201, 226, 0.8), rgba(65, 201, 226, 0.8)), url("{{ background_image_url }}") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.home .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    text-align: center;
+}
+
+.home .content h1{
+    font-size: 5rem;
+    color: #fff;
+    padding: 0 1rem;
+    text-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+    text-transform: capitalize;
+}
+
+.home .content p{
+    font-size: 2rem;
+    font-weight: 400;
+    color: #eee;
+    padding: 1rem 25rem;
+}
+
+.home .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.home .box-container .box{
+    height: 20rem;
+    width: 25rem;
+    background: #fff;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0 .3rem .5rem rgba(0,0,0,.5);
+    margin: 3rem;
+    cursor: pointer;
+}
+
+.home .box-container .box i{
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    background: #ACE2E1;
+    font-size: 3rem;
+    margin: 2rem 0;
+    transition: .2s;
+}
+
+.home .box-container .box h3{
+    font-size: 2rem;
+    color: #41C9E2;
+    transition: .2s;
+}
+.home .box-container .box p{
+    font-size: 1.3rem;
+    padding: .7rem 2rem;
+    color: #666;
+}
+
+
+
+.home::before {
+    content: '';
+    position: absolute;
+    bottom: -25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 85vh solid #fff;
+    width: 200%; 
+    border-radius: 120%;
+    z-index: -1;
+}
+
+.search-container {
+    display: flex;
+    
+    width: 50%; 
+    background-color: #fff; 
+    border: 2px solid #41C9E2; 
+    border-radius: 40px;
+    overflow: hidden;
+    margin: 0 auto 40px; 
+    padding: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    position: relative; 
+}
+
+.search-container input[type="text"] {
+    flex: 1;
+    width: 100%;
+    
+    padding: 3px;
+    margin-right: 50px;
+    border: none; 
+    outline: none;
+    background: none;
+    color: #333; 
+    font-size: 16px;
+}
+
+.search-container button {
+    border: none;
+    background: none; 
+    padding-left: 585px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    border-radius: 0 20px 20px 0; 
+    cursor: pointer;
+    position: absolute; 
+    bottom: 10px; 
+    right: 100px;
+    left: 30px;
+}
+
+.search-container button i {
+    color: #41C9E2; 
+    font-size: 20px; 
+}
+
+.search-results {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-results h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.search-results p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.course {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.course h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.course .description {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.course-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.course-link:hover {
+    background-color: #555;
+}
+</style>
+
+
+
+
+
+
+</head>
+<body>
+    
+    <section class="home" id="home">
+        <div class="content">
+         
+            <h1>CourseCraft <span> - </span> recommendation system</h1>
+            <p> Let expertise guide your journey to new knowledge, accessible anytime, anywhere.</p>            
+        </div>
+        
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>trending courses</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, aut!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-fire"></i>
+                <h3>Guidance</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, aut!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-award"></i>
+                <h3>caertification</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, aut!</p>
+            </div>
+            
+        </div>
+        
+        <div class="search-container">
+            
+            <form action="/recommend" method="post">
+                <input type="text" name="user_interest" id="search" name="search" placeholder="Search by course or category" required>
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            
+        </div>
+        
+    </section>
+    
+</body>
+
+</html>
